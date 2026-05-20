@@ -1,27 +1,24 @@
-const client = require('prom-client');
-const collectDefaultMetrics = client.collectDefaultMetrics;
-collectDefaultMetrics();
-app.get('/metrics', async (req, res) => {
-  res.set('Content-Type', client.register.contentType);
-  res.end(await client.register.metrics());
-});
-
 const express = require('express');
+const client = require('prom-client');
 
 const app = express();
 
-const PORT = 3000;
+const collectDefaultMetrics = client.collectDefaultMetrics;
+collectDefaultMetrics();
 
 app.get('/', (req, res) => {
   res.send('Node.js Microservice Running');
 });
 
 app.get('/health', (req, res) => {
-  res.status(200).json({
-    status: 'healthy'
-  });
+  res.status(200).json({ status: 'OK' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', client.register.contentType);
+  res.end(await client.register.metrics());
+});
+
+app.listen(3000, '0.0.0.0', () => {
+  console.log('Server running on port 3000');
 });
