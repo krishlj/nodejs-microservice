@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-microservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "node index.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishlj/nodejs-microservice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/krishlj/nodejs-microservice/issues"
+  },
+  "homepage": "https://github.com/krishlj/nodejs-microservice#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
